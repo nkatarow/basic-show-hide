@@ -4,6 +4,9 @@
     DESCRIPTION: Shows additional info when info icon is clicked
     AUTHOR(S): Nick Katarow
 
+    DEPENDENCIES:
+    - jQuery 1.9.1
+
 */
 
 var NAMESPACE = window.NAMESPACE || {};

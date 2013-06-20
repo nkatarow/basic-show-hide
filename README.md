@@ -12,6 +12,9 @@ Match up your anchor href to your hidden div's ID after 'info-' (see below).
 
 Script will detect the height of content living in the "content" div and set the max-height of the container accordingly. Script currently adds 50 for account for a little extra padding.
 
+###Dependencies
+- jQuery 1.9.1
+
 ###Required Markup and Styling
 
 **Trigger**
