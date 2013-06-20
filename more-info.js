@@ -1,15 +1,14 @@
 /*
 
-    FILE: CRFT.MOREINFO.JS
+    FILE: more-info.js
     DESCRIPTION: Shows additional info when info icon is clicked
     AUTHOR(S): Nick Katarow
 
-    TO DO:
 */
 
-var CRFT = window.CRFT || {};
+var NAMESPACE = window.NAMESPACE || {};
 
-CRFT.MoreInfo = function () {
+NAMESPACE.MoreInfo = function () {
     var self = this;
 
     // Elements
@@ -21,35 +20,35 @@ CRFT.MoreInfo = function () {
         event.preventDefault();
 
         var linkValue = $(this).attr('href');
-        CRFT.MoreInfo.cleanHref(linkValue);
+        NAMESPACE.MoreInfo.cleanHref(linkValue);
     });
     self.closeTrigger.click(function (event) {
         var btnParent = ($(this).parent().parent('.status-container'));
         event.preventDefault();
 
-        CRFT.MoreInfo.hideInfo(btnParent);
+        NAMESPACE.MoreInfo.hideInfo(btnParent);
     });
 }; // End: MoreInfo
 
-CRFT.MoreInfo.cleanHref = function (linkValue, infoLocation) {
+NAMESPACE.MoreInfo.cleanHref = function (linkValue, infoLocation) {
     // Removes any query strings from info button's href
     var self = this;
 
     infoLocation = linkValue.split("?")[0];
 
-    CRFT.MoreInfo.detectStatus(infoLocation);
+    NAMESPACE.MoreInfo.detectStatus(infoLocation);
 }; // End cleanHref
 
-CRFT.MoreInfo.detectStatus = function(infoLocation) {
+NAMESPACE.MoreInfo.detectStatus = function(infoLocation) {
     // Takes cleaned href and uses to determine if related status container is already open or not the calling open or close functions accordingly
     if ($(infoLocation).hasClass('open')) {
-        CRFT.MoreInfo.hideInfo(infoLocation);
+        NAMESPACE.MoreInfo.hideInfo(infoLocation);
     } else {
-        CRFT.MoreInfo.showInfo(infoLocation);
+        NAMESPACE.MoreInfo.showInfo(infoLocation);
     }
 }; // End detectStatus
 
-CRFT.MoreInfo.showInfo = function (infoLocation) {
+NAMESPACE.MoreInfo.showInfo = function (infoLocation) {
     // Shows currently hidden info
     var self = this,
         infoHeight = $(infoLocation).children('.content').height();
@@ -58,7 +57,7 @@ CRFT.MoreInfo.showInfo = function (infoLocation) {
     $(infoLocation).addClass('open');
 }; // End showInfo
 
-CRFT.MoreInfo.hideInfo = function (infoLocation) {
+NAMESPACE.MoreInfo.hideInfo = function (infoLocation) {
     // Hides currently visibile info
     var self = this;
 
